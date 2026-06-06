@@ -1,46 +1,113 @@
-# Getting Started with Create React App
+# YOTO Screening Solutions Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Professional bilingual (Chinese/English) website for YOTO Screening Solutions - a leading manufacturer of screening media and equipment for mining, quarrying, and recycling industries worldwide.
 
-## Available Scripts
+## 🌐 Live Website
 
-In the project directory, you can run:
+Visit our live website: [https://your-domain.com](https://your-domain.com)
 
-### `npm start`
+## 🏢 About YOTO Screening Solutions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+YOTO Screening Solutions is a professional manufacturer specializing in:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Woven Wire Mesh** - High tensile steel wire mesh for precise particle separation
+- **Polyurethane Panels** - Exceptional wear resistance and elasticity
+- **Rubber Screens** - Superior impact absorption and durability
+- **Perforated Plates** - Precision-engineered metal sheets
+- **Vibrating Screens** - High-efficiency screening machines
+- **Accessories** - Complete range of replacement parts
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🌍 **Bilingual Support** - Full Chinese and English language support
+- 📱 **Responsive Design** - Optimized for desktop, tablet, and mobile
+- 🎨 **Modern UI** - Professional industrial design with Tailwind CSS
+- 🔍 **SEO Optimized** - Optimized for international trade keywords
+- 📧 **Contact Form** - Inquiry, cooperation, and service requests
+- 📥 **Download Center** - PDF catalogs and technical specifications
 
-### `npm run build`
+## 🚀 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend Framework**: React 19 + TypeScript
+- **Styling**: Tailwind CSS 3
+- **Internationalization**: i18next + react-i18next
+- **Icons**: Lucide React
+- **Build Tool**: React Scripts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Install dependencies
+npm install
 
-### `npm run eject`
+# Start development server
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Build for production
+npm run build
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+src/
+├── components/
+│   ├── pages/          # Page components
+│   │   ├── HomePage.tsx
+│   │   ├── ProductsPage.tsx
+│   │   ├── ApplicationsPage.tsx
+│   │   ├── AboutPage.tsx
+│   │   ├── ProjectsPage.tsx
+│   │   ├── CustomPage.tsx
+│   │   ├── QualityPage.tsx
+│   │   └── ContactPage.tsx
+│   ├── Header.tsx
+│   └── Footer.tsx
+├── i18n.ts             # Internationalization configuration
+├── App.tsx             # Main application component
+└── index.tsx          # Application entry point
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🌐 Language Switcher
 
-## Learn More
+The website automatically detects user language preference and supports manual switching via the globe icon in the navigation bar.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📦 Products
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Woven Wire Mesh
+High tensile steel wire mesh for precise, long-lasting particle separation in heavy-duty mining applications.
+
+### Polyurethane Panels
+Exceptional wear resistance and elasticity for extended service life in demanding applications.
+
+### Rubber Screens
+Superior impact absorption and durability for heavy material handling operations.
+
+### Perforated Plates
+Precision-engineered metal sheets for accurate sizing and classification.
+
+### Vibrating Screens
+High-efficiency screening machines designed for optimal material separation.
+
+### Accessories
+Complete range of replacement parts and components for screening systems.
+
+## 🌍 Applications
+
+- **Mining** - Mineral processing, coal, and ore extraction
+- **Quarrying & Aggregates** - Stone crushing and aggregate production
+- **Recycling** - Waste sorting and material recovery
+
+## 📞 Contact
+
+- **Phone**: +8619198260720
+- **Email**: yotointl@yota.world
+- **Address**: Lugu Industrial Park, Yuelu District, Changsha City, Hunan Province, China
+
+## 📄 License
+
+© 2024 YOTO Screening Solutions. All rights reserved.
+
+---
+
+Built with ❤️ for the global screening industry
