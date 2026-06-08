@@ -144,6 +144,10 @@ const resources = {
         review2Author: '- Maria Gonzalez, Plant Manager',
         review3: 'Fast delivery and professional installation support. Highly recommended!',
         review3Author: '- David Kim, Operations Manager',
+        learnMore: 'Learn More',
+        ctaTitle: 'Ready to Start Your Project?',
+        ctaDesc: 'Contact our team today to discuss how we can help with your screening project needs.',
+        ctaButton: 'Get a Quote',
       },
       custom: {
         title: 'Custom Engineering',
@@ -334,6 +338,10 @@ const resources = {
         review2Author: '- 玛丽亚·冈萨雷斯，工厂经理',
         review3: '交付快速，安装支持专业。强烈推荐！',
         review3Author: '- 大卫·金，运营经理',
+        learnMore: '了解更多',
+        ctaTitle: '准备开始您的项目？',
+        ctaDesc: '今天联系我们的团队，讨论我们如何帮助您的筛分项目需求。',
+        ctaButton: '获取报价',
       },
       custom: {
         title: '定制工程',
