@@ -23,7 +23,6 @@ const Footer = ({ onNavigate }: FooterProps) => {
     ],
     company: [
       { label: t('header.about'), href: 'about' },
-      { label: t('header.projects'), href: 'projects' },
       { label: t('header.custom'), href: 'custom' },
       { label: t('header.quality'), href: 'quality' },
     ],

@@ -1,4 +1,4 @@
-# YOTO Screening Solutions Website
+npm run build# YOTO Screening Solutions Website
 
 Professional bilingual (Chinese/English) website for YOTO Screening Solutions - a leading manufacturer of screening media and equipment for mining, quarrying, and recycling industries worldwide.
 

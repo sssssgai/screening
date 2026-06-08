@@ -6,7 +6,7 @@ interface ApplicationsPageProps {
 }
 
 const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const applications = [
     {
@@ -132,13 +132,15 @@ const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
             Find Your Industry Solution
           </h2>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-            Our experts can help you find the perfect screening solution for your specific industry needs.
+            {i18n.language === 'en' 
+              ? 'Our experts can help you find the perfect screening solution for your specific industry needs.' 
+              : '我们的专家可以帮助您找到适合特定行业需求的完美筛分解决方案。'}
           </p>
           <button
             onClick={() => onNavigate('contact')}
             className="inline-flex items-center space-x-2 bg-secondary text-primary px-8 py-4 rounded font-semibold hover:bg-yellow-400 transition-colors"
           >
-            <span>Contact Our Experts</span>
+            <span>{i18n.language === 'en' ? 'Contact Our Experts' : '联系我们的专家'}</span>
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

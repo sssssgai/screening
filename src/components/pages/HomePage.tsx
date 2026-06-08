@@ -6,7 +6,7 @@ interface HomePageProps {
 }
 
 const HomePage = ({ onNavigate }: HomePageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const productHighlights = [
     {
@@ -33,11 +33,6 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
       name: t('products.vibratingScreens'),
       desc: t('products.vibratingScreensDesc'),
       image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=industrial%20vibrating%20screen%20machine%2C%20heavy%20duty%20mining%20equipment%2C%20steel%20structure%2C%20professional%20photo&image_size=portrait_4_3',
-    },
-    {
-      name: t('products.accessories'),
-      desc: t('products.accessoriesDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=screening%20machine%20accessories%2C%20metal%20parts%20and%20components%2C%20industrial%20spare%20parts%2C%20professional%20product%20photo&image_size=portrait_4_3',
     },
   ];
 
@@ -96,6 +91,51 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
       desc: t('home.supportDesc'),
     },
   ];
+
+  const projects = [
+    {
+      title: t('projects.project1'),
+      desc: t('projects.project1Desc'),
+      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iron%20ore%20mining%20site%2C%20large%20mining%20equipment%2C%20Australia%20outback%2C%20professional%20photography&image_size=landscape_4_3',
+    },
+    {
+      title: t('projects.project2'),
+      desc: t('projects.project2Desc'),
+      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=limestone%20quarry%20in%20Brazil%2C%20crushing%20equipment%2C%20industrial%20site%2C%20professional%20photo&image_size=landscape_4_3',
+    },
+    {
+      title: t('projects.project3'),
+      desc: t('projects.project3Desc'),
+      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=construction%20waste%20recycling%20facility%2C%20Germany%2C%20sorting%20equipment%2C%20industrial%20plant&image_size=landscape_4_3',
+    },
+    {
+      title: t('projects.project4'),
+      desc: t('projects.project4Desc'),
+      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=coal%20processing%20plant%2C%20Indonesia%2C%20industrial%20facility%2C%20screening%20equipment&image_size=landscape_4_3',
+    },
+  ];
+
+  const clientReviews = [
+    {
+      quote: t('projects.review1'),
+      author: t('projects.review1Author'),
+      rating: 5,
+    },
+    {
+      quote: t('projects.review2'),
+      author: t('projects.review2Author'),
+      rating: 5,
+    },
+    {
+      quote: t('projects.review3'),
+      author: t('projects.review3Author'),
+      rating: 5,
+    },
+  ];
+
+  const projectsSectionDesc = i18n.language === 'en' 
+    ? 'Trusted by leading companies worldwide for their most critical screening applications'
+    : '受到全球领先企业的信赖，为其提供关键的筛分应用解决方案';
 
   return (
     <div className="min-h-screen">
@@ -177,6 +217,69 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+              {t('projects.title')}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {projectsSectionDesc}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-white/90 text-sm">{project.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Client Reviews */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-primary text-center mb-8">
+              {t('projects.clientReview')}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {clientReviews.map((review, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="flex mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-gray-600 mb-4 italic">"{review.quote}"</p>
+                  <p className="text-primary font-semibold text-sm">{review.author}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

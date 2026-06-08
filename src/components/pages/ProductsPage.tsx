@@ -7,7 +7,7 @@ interface ProductsPageProps {
 }
 
 const ProductsPage = ({ onNavigate }: ProductsPageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('wovenWireMesh');
 
   const categories = [
@@ -16,7 +16,6 @@ const ProductsPage = ({ onNavigate }: ProductsPageProps) => {
     { id: 'rubberScreens', name: t('products.rubberScreens') },
     { id: 'perforatedPlates', name: t('products.perforatedPlates') },
     { id: 'vibratingScreens', name: t('products.vibratingScreens') },
-    { id: 'accessories', name: t('products.accessories') },
   ];
 
   const productsData: { [key: string]: {
@@ -69,13 +68,6 @@ const ProductsPage = ({ onNavigate }: ProductsPageProps) => {
       image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=industrial%20vibrating%20screen%20machine%2C%20heavy%20duty%20mining%20equipment%2C%20steel%20frame%2C%20professional%20photo&image_size=landscape_4_3',
       features: ['High efficiency', 'Low energy consumption', 'Easy maintenance', 'Large capacity', 'Adjustable vibration'],
       applications: ['Mining', 'Quarrying', 'Coal', 'Aggregates'],
-    },
-    accessories: {
-      title: t('products.accessories'),
-      desc: t('products.accessoriesDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=screening%20equipment%20accessories%2C%20metal%20parts%2C%20industrial%20spare%20parts%2C%20professional%20photo&image_size=landscape_4_3',
-      features: ['High quality materials', 'Precision engineered', 'Perfect fit', 'Durable', 'Easy replacement'],
-      applications: ['Maintenance', 'Replacement', 'Upgrades', 'Custom installations'],
     },
   };
 
@@ -215,14 +207,20 @@ const ProductsPage = ({ onNavigate }: ProductsPageProps) => {
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div>
-                      <h4 className="font-semibold text-primary mb-1">Need more information?</h4>
-                      <p className="text-gray-600 text-sm">Contact our technical team for custom solutions</p>
+                      <h4 className="font-semibold text-primary mb-1">
+                        {i18n.language === 'en' ? 'Need more information?' : '需要更多信息？'}
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        {i18n.language === 'en' 
+                          ? 'Contact our technical team for custom solutions' 
+                          : '联系我们的技术团队获取定制解决方案'}
+                      </p>
                     </div>
                     <button
                       onClick={() => onNavigate('contact')}
                       className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded font-medium hover:bg-accent transition-colors"
                     >
-                      <span>Contact Us</span>
+                      <span>{i18n.language === 'en' ? 'Contact Us' : '联系我们'}</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>

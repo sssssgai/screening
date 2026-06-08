@@ -6,7 +6,7 @@ interface CustomPageProps {
 }
 
 const CustomPage = ({ onNavigate }: CustomPageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const services = [
     {
@@ -129,13 +129,15 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
             Get Your Custom Solution
           </h2>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-            Contact our engineering team today to discuss your custom screening requirements.
+            {i18n.language === 'en' 
+              ? 'Contact our engineering team today to discuss your custom screening requirements.' 
+              : '立即联系我们的工程团队，讨论您的定制筛分需求。'}
           </p>
           <button
             onClick={() => onNavigate('contact')}
             className="inline-flex items-center space-x-2 bg-secondary text-primary px-8 py-4 rounded font-semibold hover:bg-yellow-400 transition-colors"
           >
-            <span>Contact Engineering Team</span>
+            <span>{i18n.language === 'en' ? 'Contact Engineering Team' : '联系工程团队'}</span>
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

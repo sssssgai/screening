@@ -7,7 +7,7 @@ interface ContactPageProps {
 }
 
 const ContactPage = ({ onNavigate }: ContactPageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -30,7 +30,11 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
     { icon: MapPin, label: t('contact.address'), value: t('contact.addressDesc') },
     { icon: Phone, label: t('contact.phone'), value: t('contact.phoneDesc') },
     { icon: Mail, label: t('contact.email'), value: t('contact.emailDesc') },
-    { icon: Clock, label: 'Working Hours', value: 'Mon - Fri: 8:00 - 18:00 (UTC+8)' },
+    { 
+      icon: Clock, 
+      label: i18n.language === 'en' ? 'Working Hours' : '工作时间', 
+      value: i18n.language === 'en' ? 'Mon - Fri: 8:00 - 18:00 (UTC+8)' : '周一至周五：8:00 - 18:00 (北京时间)' 
+    },
   ];
 
   return (
@@ -42,7 +46,9 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
             {t('contact.title')}
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Get in touch with our team for inquiries, quotes, or technical support.
+            {i18n.language === 'en' 
+              ? 'Get in touch with our team for inquiries, quotes, or technical support.' 
+              : '联系我们的团队，获取咨询、报价或技术支持。'}
           </p>
         </div>
 
@@ -50,7 +56,9 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
           {/* Contact Info */}
           <div>
             <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-              <h3 className="text-lg font-semibold text-primary mb-6">Contact Information</h3>
+              <h3 className="text-lg font-semibold text-primary mb-6">
+                {i18n.language === 'en' ? 'Contact Information' : '联系信息'}
+              </h3>
               <div className="space-y-4">
                 {contactInfo.map((info) => (
                   <div key={info.label} className="flex items-start space-x-3">
