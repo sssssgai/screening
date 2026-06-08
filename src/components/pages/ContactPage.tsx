@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Send, CheckCircle } from 'lucide-react';
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
@@ -30,26 +30,32 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
     { icon: MapPin, label: t('contact.address'), value: t('contact.addressDesc') },
     { icon: Phone, label: t('contact.phone'), value: t('contact.phoneDesc') },
     { icon: Mail, label: t('contact.email'), value: t('contact.emailDesc') },
-    { 
-      icon: Clock, 
-      label: i18n.language === 'en' ? 'Working Hours' : '工作时间', 
-      value: i18n.language === 'en' ? 'Mon - Fri: 8:00 - 18:00 (UTC+8)' : '周一至周五：8:00 - 18:00 (北京时间)' 
-    },
+    { icon: MessageCircle, label: 'WhatsApp', value: '+86 138 0000 8888', url: 'https://wa.me/8613800008888' },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
-            {t('contact.title')}
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            {i18n.language === 'en' 
-              ? 'Get in touch with our team for inquiries, quotes, or technical support.' 
-              : '联系我们的团队，获取咨询、报价或技术支持。'}
-          </p>
+        {/* Hero Banner */}
+        <div className="relative aspect-video rounded-lg overflow-hidden mb-12">
+          <img
+            src={`${process.env.PUBLIC_URL}/images/contact/contact_banner.png`}
+            alt="Contact Us"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/40 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-xl px-8 sm:px-12">
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                {t('contact.title')}
+              </h1>
+              <p className="text-white/90 text-base sm:text-lg">
+                {i18n.language === 'en' 
+                  ? 'Get in touch with our team for inquiries, quotes, or technical support.' 
+                  : '联系我们的团队，获取咨询、报价或技术支持。'}
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -67,7 +73,19 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
                     </div>
                     <div>
                       <p className="text-gray-500 text-sm">{info.label}</p>
-                      <p className="text-primary font-medium">{info.value}</p>
+                      {info.url ? (
+                        <a
+                          href={info.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary font-medium hover:text-accent transition-colors flex items-center"
+                        >
+                          {info.value}
+                          <span className="ml-1 text-xs">↗</span>
+                        </a>
+                      ) : (
+                        <p className="text-primary font-medium">{info.value}</p>
+                      )}
                     </div>
                   </div>
                 ))}

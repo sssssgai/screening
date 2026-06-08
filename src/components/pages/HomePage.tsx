@@ -96,22 +96,22 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
     {
       title: t('projects.project1'),
       desc: t('projects.project1Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iron%20ore%20mining%20site%2C%20large%20mining%20equipment%2C%20Australia%20outback%2C%20professional%20photography&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Australia.png`,
     },
     {
       title: t('projects.project2'),
       desc: t('projects.project2Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=limestone%20quarry%20in%20Brazil%2C%20crushing%20equipment%2C%20industrial%20site%2C%20professional%20photo&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Brazil.png`,
     },
     {
       title: t('projects.project3'),
       desc: t('projects.project3Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=construction%20waste%20recycling%20facility%2C%20Germany%2C%20sorting%20equipment%2C%20industrial%20plant&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Germany.png`,
     },
     {
       title: t('projects.project4'),
       desc: t('projects.project4Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=coal%20processing%20plant%2C%20Indonesia%2C%20industrial%20facility%2C%20screening%20equipment&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Indonesia.png`,
     },
   ];
 
@@ -240,16 +240,16 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden md:aspect-[16/9] lg:aspect-video">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-white/90 text-sm">{project.desc}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-white/90 text-sm sm:text-base">{project.desc}</p>
                   </div>
                 </div>
               </div>
@@ -304,9 +304,9 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
               </button>
             </div>
             <div className="relative animate-fadeInUp delay-200">
-              <div className="absolute -top-4 -right-4 w-full h-full bg-secondary/20 rounded-lg" />
+              <div className="absolute -top-4 -right-4 w-full h-full bg-gray-200/30 rounded-lg" />
               <img
-                src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20industrial%20factory%20building%2C%20manufacturing%20plant%2C%20clean%20and%20organized%2C%20professional%20photography%2C%20wide%20angle&image_size=landscape_4_3"
+                src={`${process.env.PUBLIC_URL}/images/home/about_us.png`}
                 alt="Factory"
                 className="relative rounded-lg shadow-xl w-full h-80 object-cover"
               />

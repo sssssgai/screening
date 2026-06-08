@@ -34,7 +34,7 @@ const QualityPage = ({ onNavigate }: QualityPageProps) => {
     <div className="min-h-screen bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
             {t('quality.title')}
           </h1>
@@ -44,19 +44,19 @@ const QualityPage = ({ onNavigate }: QualityPageProps) => {
         </div>
 
         {/* Hero Banner */}
-        <div className="relative h-80 rounded-lg overflow-hidden mb-12">
+        <div className="relative aspect-video rounded-xl overflow-hidden mb-12 group">
           <img
-            src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=quality%20control%20laboratory%2C%20testing%20equipment%2C%20professional%20inspection%2C%20industrial%20photography&image_size=landscape_16_9"
+            src={`${process.env.PUBLIC_URL}/images/quality/quality_banner.png`}
             alt="Quality Assurance"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/40 to-transparent" />
           <div className="absolute inset-0 flex items-center">
-            <div className="max-w-xl px-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
+            <div className="max-w-xl px-8 sm:px-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Uncompromising Quality Standards
               </h2>
-              <p className="text-white/80">
+              <p className="text-white/90 text-base sm:text-lg">
                 We implement rigorous quality control processes at every stage of production to ensure our products meet and exceed industry standards.
               </p>
             </div>
@@ -64,57 +64,78 @@ const QualityPage = ({ onNavigate }: QualityPageProps) => {
         </div>
 
         {/* Inspection Process */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <div className="flex items-center mb-6">
-            <Eye className="w-8 h-8 text-primary mr-3" />
-            <h2 className="text-xl font-semibold text-primary">{t('quality.inspection')}</h2>
-          </div>
-          <p className="text-gray-600 mb-8">{t('quality.inspectionDesc')}</p>
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
-            {inspectionSteps.map((step) => (
-              <div key={step.step} className="text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-primary font-bold">{step.step}</span>
-                </div>
-                <h4 className="font-semibold text-primary mb-1">{step.title}</h4>
-                <p className="text-gray-600 text-sm">{step.desc}</p>
+        <div
+          className="relative rounded-xl shadow-lg overflow-hidden mb-12"
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/quality/Multi-stage_Inspection_Process.png)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <div className="relative bg-white/60 p-8">
+            <div className="flex items-center mb-8">
+              <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                <Eye className="w-8 h-8 text-primary" />
               </div>
-            ))}
+              <div>
+                <h2 className="text-xl font-semibold text-primary">{t('quality.inspection')}</h2>
+                <p className="text-gray-600 mt-1">{t('quality.inspectionDesc')}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-6">
+              {inspectionSteps.map((step, index) => (
+                <div key={step.step} className="text-center relative">
+                  {index < inspectionSteps.length - 1 && (
+                    <div className="hidden sm:block absolute top-6 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent" />
+                  )}
+                  <div className="relative z-10 w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg shadow-md">
+                    {step.step}
+                  </div>
+                  <h4 className="font-semibold text-primary mb-2">{step.title}</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Testing Methods */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-4">
-              <Shield className="w-6 h-6 text-primary" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+            <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <Shield className="w-7 h-7 text-primary" />
             </div>
             <h3 className="text-lg font-semibold text-primary mb-2">{t('quality.materials')}</h3>
-            <p className="text-gray-600 text-sm">{t('quality.materialsDesc')}</p>
+            <p className="text-gray-600 text-sm leading-relaxed">{t('quality.materialsDesc')}</p>
           </div>
           {testingMethods.map((method) => (
-            <div key={method.title} className="bg-white rounded-lg p-6 shadow-lg">
-              <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-4">
-                <method.icon className="w-6 h-6 text-primary" />
+            <div key={method.title} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mb-4">
+                <method.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-primary mb-2">{method.title}</h3>
-              <p className="text-gray-600 text-sm">{method.desc}</p>
+              <p className="text-gray-600 text-sm leading-relaxed">{method.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Certifications */}
-        <div className="bg-primary rounded-lg p-8">
-          <div className="flex items-center mb-6">
-            <Award className="w-8 h-8 text-secondary mr-3" />
-            <h2 className="text-xl font-semibold text-white">{t('quality.certifications')}</h2>
+        <div className="bg-gradient-to-br from-primary to-primary/90 rounded-xl p-8 sm:p-10 shadow-xl">
+          <div className="flex flex-col sm:flex-row sm:items-center mb-8">
+            <div className="bg-white/20 p-4 rounded-xl mr-0 sm:mr-4 mb-4 sm:mb-0">
+              <Award className="w-10 h-10 text-secondary" />
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-white">{t('quality.certifications')}</h2>
+              <p className="text-white/80 mt-1">{t('quality.certificationsDesc')}</p>
+            </div>
           </div>
-          <p className="text-white/70 mb-6">{t('quality.certificationsDesc')}</p>
           <div className="flex flex-wrap gap-4">
             {certifications.map((cert) => (
               <span
                 key={cert}
-                className="bg-white/10 text-white px-6 py-3 rounded-lg font-medium"
+                className="bg-white/15 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium border border-white/20 hover:bg-white/25 transition-colors"
               >
                 {cert}
               </span>

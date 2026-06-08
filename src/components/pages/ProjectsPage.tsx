@@ -13,28 +13,28 @@ const ProjectsPage = ({ onNavigate }: ProjectsPageProps) => {
       id: 1,
       title: t('projects.project1'),
       desc: t('projects.project1Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iron%20ore%20mining%20processing%20plant%2C%20heavy%20machinery%2C%20industrial%20photography%2C%20Australia&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Australia.png`,
       location: 'Australia',
     },
     {
       id: 2,
       title: t('projects.project2'),
       desc: t('projects.project2Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=limestone%20quarry%20with%20crushing%20equipment%2C%20industrial%20photography%2C%20Brazil&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Brazil.png`,
       location: 'Brazil',
     },
     {
       id: 3,
       title: t('projects.project3'),
       desc: t('projects.project3Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=construction%20waste%20recycling%20facility%2C%20industrial%20photography%2C%20Germany&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Germany.png`,
       location: 'Germany',
     },
     {
       id: 4,
       title: t('projects.project4'),
       desc: t('projects.project4Desc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=coal%20processing%20plant%2C%20industrial%20photography%2C%20Indonesia&image_size=landscape_4_3',
+      image: `${process.env.PUBLIC_URL}/images/projects/Indonesia.png`,
       location: 'Indonesia',
     },
   ];
@@ -77,14 +77,14 @@ const ProjectsPage = ({ onNavigate }: ProjectsPageProps) => {
               key={project.id}
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer group"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden md:aspect-[16/9] lg:aspect-video">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center space-x-1">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center space-x-1">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span className="text-sm font-medium text-primary">{project.location}</span>
                 </div>
