@@ -57,7 +57,7 @@ const ProductsPage = ({ onNavigate }: ProductsPageProps) => {
     rubberScreens: {
       title: t('products.rubberScreens'),
       desc: t('products.rubberScreensDesc'),
-      image: `${process.env.PUBLIC_URL}/images/products/Rubber_Screens/RubberScreens.png`,
+      image: `${process.env.PUBLIC_URL}/images/products/Rubber_Screens/rubberScreens.png`,
       features: ['Superior impact absorption', 'High durability', 'Vibration damping', 'Non-slip surface', 'Easy installation'],
       applications: ['Mining', 'Quarrying', 'Heavy industry', 'Waste management'],
       subProducts: [
@@ -73,10 +73,10 @@ const ProductsPage = ({ onNavigate }: ProductsPageProps) => {
       features: ['Precision perforation', 'High accuracy', 'Various hole patterns', 'Corrosion resistant', 'Customizable'],
       applications: ['Food processing', 'Pharmaceutical', 'Automotive', 'Architecture'],
       subProducts: [
-        { name: t('products.perforatedRound'), desc: t('products.perforatedRoundDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/PerforatedRound.png` },
-        { name: t('products.perforatedSquare'), desc: t('products.perforatedSquareDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/PerforatedSquare.png` },
-        { name: t('products.perforatedSlotted'), desc: t('products.perforatedSlottedDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/PerforatedSlotted.png` },
-        { name: t('products.perforatedCustom'), desc: t('products.perforatedCustomDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/PerforatedCustom.png` },
+        { name: t('products.perforatedRound'), desc: t('products.perforatedRoundDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/perforatedRound.png` },
+        { name: t('products.perforatedSquare'), desc: t('products.perforatedSquareDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/perforatedSquare.png` },
+        { name: t('products.perforatedSlotted'), desc: t('products.perforatedSlottedDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/perforatedSlotted.png` },
+        { name: t('products.perforatedCustom'), desc: t('products.perforatedCustomDesc'), image: `${process.env.PUBLIC_URL}/images/products/perforatedPlates/perforatedCustom.png` },
       ],
     },
     vibratingScreens: {
