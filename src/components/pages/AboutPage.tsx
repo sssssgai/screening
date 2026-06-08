@@ -7,6 +7,7 @@ interface AboutPageProps {
 
 const AboutPage = ({ onNavigate }: AboutPageProps) => {
   const { t } = useTranslation();
+  const publicUrl = process.env.PUBLIC_URL || '';
 
   const stats = [
     { value: '25+', label: 'Years Experience' },
@@ -20,25 +21,25 @@ const AboutPage = ({ onNavigate }: AboutPageProps) => {
       icon: Factory,
       title: t('about.factory'),
       desc: t('about.factoryDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20CNC%20machining%20workshop%2C%20industrial%20manufacturing%2C%20precision%20machinery%2C%20professional%20photography&image_size=landscape_4_3',
+      image: `${publicUrl}/images/about/Factory.png`,
     },
     {
       icon: Globe,
       title: t('about.global'),
       desc: t('about.globalDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=global%20logistics%20network%2C%20shipping%20containers%2C%20international%20trade%2C%20world%20map%20background&image_size=landscape_4_3',
+      image: `${publicUrl}/images/about/Global.png`,
     },
     {
       icon: Wrench,
       title: t('about.engineering'),
       desc: t('about.engineeringDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=CAD%20design%20workstation%2C%20engineering%20office%2C%20blueprints%2C%20professional%20photography&image_size=landscape_4_3',
+      image: `${publicUrl}/images/about/Engineering.png`,
     },
     {
       icon: Headphones,
       title: t('about.service'),
       desc: t('about.serviceDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=technical%20support%20team%2C%20customer%20service%2C%20professional%20office%2C%20help%20desk&image_size=landscape_4_3',
+      image: `${publicUrl}/images/about/Service.png`,
     },
   ];
 
@@ -58,7 +59,7 @@ const AboutPage = ({ onNavigate }: AboutPageProps) => {
         {/* Hero Banner */}
         <div className="relative h-80 rounded-lg overflow-hidden mb-12">
           <img
-            src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20industrial%20factory%20exterior%2C%20manufacturing%20plant%2C%20professional%20architecture%2C%20wide%20angle%20shot&image_size=landscape_16_9"
+            src={`${publicUrl}/images/about/CompanyBanner.png`}
             alt="Company"
             className="w-full h-full object-cover"
           />

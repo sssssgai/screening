@@ -6,7 +6,7 @@ interface HomePageProps {
 }
 
 const HomePage = ({ onNavigate }: HomePageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const productHighlights = [
     {
@@ -33,11 +33,6 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
       name: t('products.vibratingScreens'),
       desc: t('products.vibratingScreensDesc'),
       image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=industrial%20vibrating%20screen%20machine%2C%20heavy%20duty%20mining%20equipment%2C%20steel%20structure%2C%20professional%20photo&image_size=portrait_4_3',
-    },
-    {
-      name: t('products.accessories'),
-      desc: t('products.accessoriesDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=screening%20machine%20accessories%2C%20metal%20parts%20and%20components%2C%20industrial%20spare%20parts%2C%20professional%20product%20photo&image_size=portrait_4_3',
     },
   ];
 
@@ -96,6 +91,51 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
       desc: t('home.supportDesc'),
     },
   ];
+
+  const projects = [
+    {
+      title: t('projects.project1'),
+      desc: t('projects.project1Desc'),
+      image: `${process.env.PUBLIC_URL}/images/projects/Australia.png`,
+    },
+    {
+      title: t('projects.project2'),
+      desc: t('projects.project2Desc'),
+      image: `${process.env.PUBLIC_URL}/images/projects/Brazil.png`,
+    },
+    {
+      title: t('projects.project3'),
+      desc: t('projects.project3Desc'),
+      image: `${process.env.PUBLIC_URL}/images/projects/Germany.png`,
+    },
+    {
+      title: t('projects.project4'),
+      desc: t('projects.project4Desc'),
+      image: `${process.env.PUBLIC_URL}/images/projects/Indonesia.png`,
+    },
+  ];
+
+  const clientReviews = [
+    {
+      quote: t('projects.review1'),
+      author: t('projects.review1Author'),
+      rating: 5,
+    },
+    {
+      quote: t('projects.review2'),
+      author: t('projects.review2Author'),
+      rating: 5,
+    },
+    {
+      quote: t('projects.review3'),
+      author: t('projects.review3Author'),
+      rating: 5,
+    },
+  ];
+
+  const projectsSectionDesc = i18n.language === 'en' 
+    ? 'Trusted by leading companies worldwide for their most critical screening applications'
+    : '受到全球领先企业的信赖，为其提供关键的筛分应用解决方案';
 
   return (
     <div className="min-h-screen">
@@ -181,6 +221,69 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+              {t('projects.title')}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {projectsSectionDesc}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden md:aspect-[16/9] lg:aspect-video">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-white/90 text-sm sm:text-base">{project.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Client Reviews */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-primary text-center mb-8">
+              {t('projects.clientReview')}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {clientReviews.map((review, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="flex mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-gray-600 mb-4 italic">"{review.quote}"</p>
+                  <p className="text-primary font-semibold text-sm">{review.author}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -201,9 +304,9 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
               </button>
             </div>
             <div className="relative animate-fadeInUp delay-200">
-              <div className="absolute -top-4 -right-4 w-full h-full bg-secondary/20 rounded-lg" />
+              <div className="absolute -top-4 -right-4 w-full h-full bg-gray-200/30 rounded-lg" />
               <img
-                src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20industrial%20factory%20building%2C%20manufacturing%20plant%2C%20clean%20and%20organized%2C%20professional%20photography%2C%20wide%20angle&image_size=landscape_4_3"
+                src={`${process.env.PUBLIC_URL}/images/home/about_us.png`}
                 alt="Factory"
                 className="relative rounded-lg shadow-xl w-full h-80 object-cover"
               />

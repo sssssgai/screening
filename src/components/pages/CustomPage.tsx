@@ -6,7 +6,7 @@ interface CustomPageProps {
 }
 
 const CustomPage = ({ onNavigate }: CustomPageProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const services = [
     {
@@ -14,24 +14,28 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
       title: t('custom.oem'),
       desc: t('custom.oemDesc'),
       features: ['Brand labeling', 'Custom packaging', 'Product customization', 'Quality assurance', 'Competitive pricing'],
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/oem.png`,
     },
     {
       icon: PenTool,
       title: t('custom.cad'),
       desc: t('custom.cadDesc'),
       features: ['3D modeling', 'Finite element analysis', 'Technical drawing', 'Prototype development', 'Design optimization'],
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/cad.png`,
     },
     {
       icon: Ruler,
       title: t('custom.customization'),
       desc: t('custom.customizationDesc'),
       features: ['Dimension customization', 'Material selection', 'Shape modification', 'Special requirements', 'Performance optimization'],
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/customization.png`,
     },
     {
       icon: Layers,
       title: t('custom.materialOptions'),
       desc: t('custom.materialOptionsDesc'),
       features: ['High carbon steel', 'Stainless steel', 'Polyurethane', 'Natural rubber', 'Special alloys'],
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/material.png`,
     },
   ];
 
@@ -57,23 +61,12 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
         </div>
 
         {/* Hero Banner */}
-        <div className="relative h-80 rounded-lg overflow-hidden mb-12">
+        <div className="relative aspect-video rounded-lg overflow-hidden mb-12">
           <img
-            src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=engineering%20design%20workstation%2C%20CAD%20software%2C%20industrial%20design%2C%20professional%20office&image_size=landscape_16_9"
+            src={`${process.env.PUBLIC_URL}/images/custom/custom.png`}
             alt="Custom Engineering"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent" />
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-xl px-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Tailored Solutions for Your Needs
-              </h2>
-              <p className="text-white/80">
-                Our experienced engineering team works closely with you to design and manufacture custom screening solutions that meet your exact specifications.
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Services */}
@@ -81,22 +74,28 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
+              className="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              style={{
+                backgroundImage: `url(${service.backgroundImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <service.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-primary mb-2">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.desc}</p>
-              <div className="flex flex-wrap gap-2">
-                {service.features.map((feature) => (
-                  <span
-                    key={feature}
-                    className="bg-secondary/20 text-primary px-3 py-1 rounded-full text-sm"
-                  >
-                    {feature}
-                  </span>
-                ))}
+              {/* Content */}
+              <div className="relative bg-white/65 p-6 h-full">
+                <h3 className="text-lg font-semibold text-primary mb-2">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {service.features.map((feature) => (
+                    <span
+                      key={feature}
+                      className="bg-secondary/20 text-primary px-3 py-1 rounded-full text-sm"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
@@ -129,13 +128,15 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
             Get Your Custom Solution
           </h2>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-            Contact our engineering team today to discuss your custom screening requirements.
+            {i18n.language === 'en' 
+              ? 'Contact our engineering team today to discuss your custom screening requirements.' 
+              : '立即联系我们的工程团队，讨论您的定制筛分需求。'}
           </p>
           <button
             onClick={() => onNavigate('contact')}
             className="inline-flex items-center space-x-2 bg-secondary text-primary px-8 py-4 rounded font-semibold hover:bg-yellow-400 transition-colors"
           >
-            <span>Contact Engineering Team</span>
+            <span>{i18n.language === 'en' ? 'Contact Engineering Team' : '联系工程团队'}</span>
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
