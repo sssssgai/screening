@@ -6,7 +6,7 @@ interface ApplicationsPageProps {
 }
 
 const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const applications = [
     {
@@ -14,7 +14,7 @@ const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
       title: t('applications.mining'),
       desc: t('applications.miningDesc'),
       icon: Pickaxe,
-      image: `${process.env.PUBLIC_URL}/images/applications/mining.png`,
+      image: `${process.env.PUBLIC_URL}/images/applications/mining.webp`,
       features: ['Iron ore screening', 'Coal processing', 'Copper mining', 'Gold extraction', 'Mineral classification'],
       stats: { projects: 200, countries: 35, equipment: 500 },
     },
@@ -23,7 +23,7 @@ const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
       title: t('applications.quarrying'),
       desc: t('applications.quarryingDesc'),
       icon: Mountain,
-      image: `${process.env.PUBLIC_URL}/images/applications/quarrying.png`,
+      image: `${process.env.PUBLIC_URL}/images/applications/quarrying.webp`,
       features: ['Limestone processing', 'Granite screening', 'Sand production', 'Aggregate sizing', 'Stone crushing'],
       stats: { projects: 150, countries: 40, equipment: 380 },
     },
@@ -32,7 +32,7 @@ const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
       title: t('applications.recycling'),
       desc: t('applications.recyclingDesc'),
       icon: Recycle,
-      image: `${process.env.PUBLIC_URL}/images/applications/recycling.png`,
+      image: `${process.env.PUBLIC_URL}/images/applications/recycling.webp`,
       features: ['Construction waste', 'Plastic recycling', 'Metal separation', 'MSW sorting', 'Compost screening'],
       stats: { projects: 80, countries: 25, equipment: 200 },
     },
@@ -66,6 +66,7 @@ const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
                   <img
                     src={app.image}
                     alt={app.title}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent lg:bg-gradient-to-r" />
@@ -129,18 +130,16 @@ const ApplicationsPage = ({ onNavigate }: ApplicationsPageProps) => {
         {/* CTA */}
         <div className="mt-12 bg-primary rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
-            Find Your Industry Solution
+            {t('applications.findYourSolution')}
           </h2>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-            {i18n.language === 'en' 
-              ? 'Our experts can help you find the perfect screening solution for your specific industry needs.' 
-              : '我们的专家可以帮助您找到适合特定行业需求的完美筛分解决方案。'}
+            {t('applications.findYourSolutionDesc')}
           </p>
           <button
             onClick={() => onNavigate('contact')}
             className="inline-flex items-center space-x-2 bg-secondary text-primary px-8 py-4 rounded font-semibold hover:bg-yellow-400 transition-colors"
           >
-            <span>{i18n.language === 'en' ? 'Contact Our Experts' : '联系我们的专家'}</span>
+            <span>{t('applications.contactOurExperts')}</span>
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

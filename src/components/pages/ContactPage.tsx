@@ -7,7 +7,7 @@ interface ContactPageProps {
 }
 
 const ContactPage = ({ onNavigate }: ContactPageProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -30,7 +30,7 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
     { icon: MapPin, label: t('contact.address'), value: t('contact.addressDesc') },
     { icon: Phone, label: t('contact.phone'), value: t('contact.phoneDesc') },
     { icon: Mail, label: t('contact.email'), value: t('contact.emailDesc') },
-    { icon: MessageCircle, label: 'WhatsApp', value: '+86 138 0000 8888', url: 'https://wa.me/8613800008888' },
+    { icon: MessageCircle, label: 'WhatsApp', value: '+86 19198260720', url: 'https://wa.me/8619198260720' },
   ];
 
   return (
@@ -39,8 +39,9 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
         {/* Hero Banner */}
         <div className="relative aspect-video rounded-lg overflow-hidden mb-12">
           <img
-            src={`${process.env.PUBLIC_URL}/images/contact/contact_banner.png`}
+            src={`${process.env.PUBLIC_URL}/images/contact/contact_banner.webp`}
             alt="Contact Us"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/40 to-transparent" />
@@ -50,9 +51,7 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
                 {t('contact.title')}
               </h1>
               <p className="text-white/90 text-base sm:text-lg">
-                {i18n.language === 'en' 
-                  ? 'Get in touch with our team for inquiries, quotes, or technical support.' 
-                  : '联系我们的团队，获取咨询、报价或技术支持。'}
+                {t('contact.bannerDesc')}
               </p>
             </div>
           </div>
@@ -63,7 +62,7 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
           <div>
             <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
               <h3 className="text-lg font-semibold text-primary mb-6">
-                {i18n.language === 'en' ? 'Contact Information' : '联系信息'}
+                {t('contact.contactInfo')}
               </h3>
               <div className="space-y-4">
                 {contactInfo.map((info) => (
@@ -96,8 +95,9 @@ const ContactPage = ({ onNavigate }: ContactPageProps) => {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-64 bg-gray-200 relative">
                 <img
-                  src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=satellite%20view%20of%20industrial%20park%2C%20Changsha%20China%2C%20modern%20buildings%2C%20aerial%20photography&image_size=landscape_4_3"
+                  src={`${process.env.PUBLIC_URL}/images/contact/map.webp`}
                   alt="Map"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

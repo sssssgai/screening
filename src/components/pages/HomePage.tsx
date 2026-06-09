@@ -6,33 +6,33 @@ interface HomePageProps {
 }
 
 const HomePage = ({ onNavigate }: HomePageProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const productHighlights = [
     {
       name: t('products.wovenWireMesh'),
       desc: t('products.wovenWireMeshDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20quality%20woven%20wire%20mesh%20for%20industrial%20screening%2C%20steel%20wire%20grid%2C%20dark%20background%2C%20professional%20product%20photo&image_size=portrait_4_3',
+      image: `${process.env.PUBLIC_URL}/images/home/wovenWireMesh.webp`,
     },
     {
       name: t('products.polyurethanePanels'),
       desc: t('products.polyurethanePanelsDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=polyurethane%20screen%20panels%20for%20mining%2C%20industrial%20equipment%2C%20orange%20and%20black%20colors%2C%20professional%20product%20photo&image_size=portrait_4_3',
+      image: `${process.env.PUBLIC_URL}/images/home/polyurethanePanels.webp`,
     },
     {
       name: t('products.rubberScreens'),
       desc: t('products.rubberScreensDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=rubber%20screen%20panels%20for%20heavy%20machinery%2C%20industrial%20vibrating%20screen%2C%20dark%20rubber%20material%2C%20professional%20product%20photo&image_size=portrait_4_3',
+      image: `${process.env.PUBLIC_URL}/images/home/rubberScreens.webp`,
     },
     {
       name: t('products.perforatedPlates'),
       desc: t('products.perforatedPlatesDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=perforated%20steel%20plates%20with%20precision%20holes%2C%20industrial%20metal%20sheet%2C%20silver%20color%2C%20professional%20product%20photo&image_size=portrait_4_3',
+      image: `${process.env.PUBLIC_URL}/images/home/perforatedPlates.webp`,
     },
     {
       name: t('products.vibratingScreens'),
       desc: t('products.vibratingScreensDesc'),
-      image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=industrial%20vibrating%20screen%20machine%2C%20heavy%20duty%20mining%20equipment%2C%20steel%20structure%2C%20professional%20photo&image_size=portrait_4_3',
+      image: `${process.env.PUBLIC_URL}/images/home/vibratingScreens.webp`,
     },
   ];
 
@@ -96,22 +96,22 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
     {
       title: t('projects.project1'),
       desc: t('projects.project1Desc'),
-      image: `${process.env.PUBLIC_URL}/images/projects/Australia.png`,
+      image: `${process.env.PUBLIC_URL}/images/projects/Australia.webp`,
     },
     {
       title: t('projects.project2'),
       desc: t('projects.project2Desc'),
-      image: `${process.env.PUBLIC_URL}/images/projects/Brazil.png`,
+      image: `${process.env.PUBLIC_URL}/images/projects/Brazil.webp`,
     },
     {
       title: t('projects.project3'),
       desc: t('projects.project3Desc'),
-      image: `${process.env.PUBLIC_URL}/images/projects/Germany.png`,
+      image: `${process.env.PUBLIC_URL}/images/projects/Germany.webp`,
     },
     {
       title: t('projects.project4'),
       desc: t('projects.project4Desc'),
-      image: `${process.env.PUBLIC_URL}/images/projects/Indonesia.png`,
+      image: `${process.env.PUBLIC_URL}/images/projects/Indonesia.webp`,
     },
   ];
 
@@ -133,17 +133,13 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
     },
   ];
 
-  const projectsSectionDesc = i18n.language === 'en' 
-    ? 'Trusted by leading companies worldwide for their most critical screening applications'
-    : '受到全球领先企业的信赖，为其提供关键的筛分应用解决方案';
-
   return (
     <div className="min-h-screen">
       {/* Banner */}
       <section className="relative h-screen bg-primary overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=industrial%20mining%20screening%20equipment%2C%20heavy%20machinery%20at%20quarry%2C%20dramatic%20sky%2C%20professional%20photography%2C%20wide%20angle&image_size=landscape_16_9"
+            src={`${process.env.PUBLIC_URL}/images/home/Screening_Equipment.webp`}
             alt="Screening Equipment"
             className="w-full h-full object-cover opacity-60"
           />
@@ -152,7 +148,10 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
           <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 animate-fadeInUp">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-secondary mb-3 animate-fadeInUp">
+              {t('home.companyName')}
+            </h2>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 animate-fadeInUp delay-100">
               {t('home.bannerTitle')}
             </h1>
             <p className="text-xl sm:text-2xl text-secondary font-semibold mb-6 animate-fadeInUp delay-100">
@@ -203,6 +202,7 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
                   <img
                     src={product.image}
                     alt={product.name}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -229,7 +229,7 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
               {t('projects.title')}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {projectsSectionDesc}
+              {t('projects.projectsSectionDesc')}
             </p>
           </div>
 
@@ -244,6 +244,7 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -306,8 +307,9 @@ const HomePage = ({ onNavigate }: HomePageProps) => {
             <div className="relative animate-fadeInUp delay-200">
               <div className="absolute -top-4 -right-4 w-full h-full bg-gray-200/30 rounded-lg" />
               <img
-                src={`${process.env.PUBLIC_URL}/images/home/about_us.png`}
+                src={`${process.env.PUBLIC_URL}/images/home/about_us.webp`}
                 alt="Factory"
+                loading="lazy"
                 className="relative rounded-lg shadow-xl w-full h-80 object-cover"
               />
             </div>
