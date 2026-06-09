@@ -46,8 +46,9 @@ const QualityPage = ({ onNavigate }: QualityPageProps) => {
         {/* Hero Banner */}
         <div className="relative aspect-video rounded-xl overflow-hidden mb-12 group">
           <img
-            src={`${process.env.PUBLIC_URL}/images/quality/quality_banner.png`}
+            src={`${process.env.PUBLIC_URL}/images/quality/quality_banner.webp`}
             alt="Quality Assurance"
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/40 to-transparent" />
@@ -67,7 +68,7 @@ const QualityPage = ({ onNavigate }: QualityPageProps) => {
         <div
           className="relative rounded-xl shadow-lg overflow-hidden mb-12"
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/images/quality/Multi-stage_Inspection_Process.png)`,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/quality/Multi-stage_Inspection_Process.webp)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

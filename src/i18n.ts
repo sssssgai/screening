@@ -16,6 +16,8 @@ const resources = {
         contact: 'Contact Us',
       },
       home: {
+        companyName: 'Changsha Yoto Technology Co., Ltd.',
+        companyNameCN: '长沙越拓科技有限公司',
         bannerTitle: 'SCREENING SOLUTIONS',
         bannerSubtitle: 'Engineered For Maximum Performance',
         bannerDesc: 'Reliable screening media and high-performance vibrating equipment, purpose-built to meet the rigorous demands of mining, quarrying, and aggregate industries worldwide.',
@@ -102,6 +104,9 @@ const resources = {
         vibratingHighFrequencyDesc: 'High-frequency vibration for fine material separation.',
         vibratingMultiDeck: 'Multi-Deck Screens',
         vibratingMultiDeckDesc: 'Multiple screening decks for multi-stage separation.',
+        needMoreInfo: 'Need more information?',
+        needMoreInfoDesc: 'Contact our technical team for custom solutions',
+        contactUs: 'Contact Us',
       },
       applications: {
         title: 'Applications',
@@ -111,6 +116,9 @@ const resources = {
         quarryingDesc: 'High-performance screening equipment for stone crushing and aggregate production.',
         recycling: 'Recycling',
         recyclingDesc: 'Specialized screening systems for waste sorting and material recovery applications.',
+        findYourSolution: 'Find Your Industry Solution',
+        findYourSolutionDesc: 'Our experts can help you find the perfect screening solution for your specific industry needs.',
+        contactOurExperts: 'Contact Our Experts',
       },
       about: {
         title: 'About Us',
@@ -144,6 +152,11 @@ const resources = {
         review2Author: '- Maria Gonzalez, Plant Manager',
         review3: 'Fast delivery and professional installation support. Highly recommended!',
         review3Author: '- David Kim, Operations Manager',
+        learnMore: 'Learn More',
+        ctaTitle: 'Ready to Start Your Project?',
+        ctaDesc: 'Contact our team today to discuss how we can help with your screening project needs.',
+        ctaButton: 'Get a Quote',
+        projectsSectionDesc: 'Trusted by leading companies worldwide for their most critical screening applications',
       },
       custom: {
         title: 'Custom Engineering',
@@ -155,6 +168,9 @@ const resources = {
         customizationDesc: 'We provide flexible customization for dimensions, materials, and shapes to ensure our products perfectly fit your screening applications.',
         materialOptions: 'Material Options',
         materialOptionsDesc: 'High carbon steel, stainless steel, polyurethane, natural rubber, and special alloys available.',
+        getCustomSolution: 'Get Your Custom Solution',
+        getCustomSolutionDesc: 'Contact our engineering team today to discuss your custom screening requirements.',
+        contactEngineeringTeam: 'Contact Engineering Team',
       },
       quality: {
         title: 'Quality Assurance',
@@ -169,6 +185,8 @@ const resources = {
       },
       contact: {
         title: 'Contact Us',
+        bannerDesc: 'Get in touch with our team for inquiries, quotes, or technical support.',
+        contactInfo: 'Contact Information',
         address: 'Address',
         addressDesc: 'Lugu Industrial Park, Yuelu District, Changsha City, Hunan Province, China',
         phone: 'Phone',
@@ -206,6 +224,8 @@ const resources = {
         contact: '联系我们',
       },
       home: {
+        companyName: '长沙越拓科技有限公司',
+        companyNameCN: '长沙越拓科技有限公司',
         bannerTitle: '筛分解决方案',
         bannerSubtitle: '为极致性能而设计',
         bannerDesc: '可靠的筛分介质和高性能振动设备，专为满足全球矿业、石料加工和骨料行业的严苛需求而打造。',
@@ -292,6 +312,9 @@ const resources = {
         vibratingHighFrequencyDesc: '高频振动，适用于细物料分离。',
         vibratingMultiDeck: '多层振动筛',
         vibratingMultiDeckDesc: '多层筛面，多级分离。',
+        needMoreInfo: '需要更多信息？',
+        needMoreInfoDesc: '联系我们的技术团队获取定制解决方案',
+        contactUs: '联系我们',
       },
       applications: {
         title: '应用领域',
@@ -301,6 +324,9 @@ const resources = {
         quarryingDesc: '石材破碎和骨料生产的高性能筛分设备。',
         recycling: '回收行业',
         recyclingDesc: '废物分类和材料回收应用的专业筛分系统。',
+        findYourSolution: '找到您的行业解决方案',
+        findYourSolutionDesc: '我们的专家可以帮助您找到适合特定行业需求的完美筛分解决方案。',
+        contactOurExperts: '联系我们的专家',
       },
       about: {
         title: '关于我们',
@@ -334,6 +360,11 @@ const resources = {
         review2Author: '- 玛丽亚·冈萨雷斯，工厂经理',
         review3: '交付快速，安装支持专业。强烈推荐！',
         review3Author: '- 大卫·金，运营经理',
+        learnMore: '了解更多',
+        ctaTitle: '准备开始您的项目？',
+        ctaDesc: '今天联系我们的团队，讨论我们如何帮助您的筛分项目需求。',
+        ctaButton: '获取报价',
+        projectsSectionDesc: '受到全球领先企业的信赖，为其提供关键的筛分应用解决方案',
       },
       custom: {
         title: '定制工程',
@@ -345,6 +376,9 @@ const resources = {
         customizationDesc: '我们提供尺寸、材料和形状的灵活定制，确保我们的产品完美适配您的筛分应用。',
         materialOptions: '材料选项',
         materialOptionsDesc: '可提供高碳钢、不锈钢、聚氨酯、天然橡胶和特殊合金。',
+        getCustomSolution: '获取您的定制解决方案',
+        getCustomSolutionDesc: '立即联系我们的工程团队，讨论您的定制筛分需求。',
+        contactEngineeringTeam: '联系工程团队',
       },
       quality: {
         title: '质量保证',
@@ -359,6 +393,8 @@ const resources = {
       },
       contact: {
         title: '联系我们',
+        bannerDesc: '联系我们的团队，获取咨询、报价或技术支持。',
+        contactInfo: '联系信息',
         address: '地址',
         addressDesc: '湖南省长沙市岳麓区麓谷产业园',
         phone: '电话',

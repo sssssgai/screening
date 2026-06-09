@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -64,10 +64,6 @@ const Footer = ({ onNavigate }: FooterProps) => {
               <div className="flex items-center space-x-3 text-white/70">
                 <Mail className="w-4 h-4 text-secondary" />
                 <span className="text-sm">{t('contact.emailDesc')}</span>
-              </div>
-              <div className="flex items-center space-x-3 text-white/70">
-                <Clock className="w-4 h-4 text-secondary" />
-                <span className="text-sm">Mon - Fri: 8:00 - 18:00 (UTC+8)</span>
               </div>
             </div>
           </div>

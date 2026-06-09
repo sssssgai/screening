@@ -6,7 +6,7 @@ interface CustomPageProps {
 }
 
 const CustomPage = ({ onNavigate }: CustomPageProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const services = [
     {
@@ -14,28 +14,28 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
       title: t('custom.oem'),
       desc: t('custom.oemDesc'),
       features: ['Brand labeling', 'Custom packaging', 'Product customization', 'Quality assurance', 'Competitive pricing'],
-      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/oem.png`,
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/oem.webp`,
     },
     {
       icon: PenTool,
       title: t('custom.cad'),
       desc: t('custom.cadDesc'),
       features: ['3D modeling', 'Finite element analysis', 'Technical drawing', 'Prototype development', 'Design optimization'],
-      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/cad.png`,
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/cad.webp`,
     },
     {
       icon: Ruler,
       title: t('custom.customization'),
       desc: t('custom.customizationDesc'),
       features: ['Dimension customization', 'Material selection', 'Shape modification', 'Special requirements', 'Performance optimization'],
-      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/customization.png`,
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/customization.webp`,
     },
     {
       icon: Layers,
       title: t('custom.materialOptions'),
       desc: t('custom.materialOptionsDesc'),
       features: ['High carbon steel', 'Stainless steel', 'Polyurethane', 'Natural rubber', 'Special alloys'],
-      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/material.png`,
+      backgroundImage: `${process.env.PUBLIC_URL}/images/custom/material.webp`,
     },
   ];
 
@@ -63,8 +63,9 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
         {/* Hero Banner */}
         <div className="relative aspect-video rounded-lg overflow-hidden mb-12">
           <img
-            src={`${process.env.PUBLIC_URL}/images/custom/custom.png`}
+            src={`${process.env.PUBLIC_URL}/images/custom/custom.webp`}
             alt="Custom Engineering"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
         </div>
@@ -125,18 +126,16 @@ const CustomPage = ({ onNavigate }: CustomPageProps) => {
         {/* CTA */}
         <div className="bg-primary rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">
-            Get Your Custom Solution
+            {t('custom.getCustomSolution')}
           </h2>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-            {i18n.language === 'en' 
-              ? 'Contact our engineering team today to discuss your custom screening requirements.' 
-              : '立即联系我们的工程团队，讨论您的定制筛分需求。'}
+            {t('custom.getCustomSolutionDesc')}
           </p>
           <button
             onClick={() => onNavigate('contact')}
             className="inline-flex items-center space-x-2 bg-secondary text-primary px-8 py-4 rounded font-semibold hover:bg-yellow-400 transition-colors"
           >
-            <span>{i18n.language === 'en' ? 'Contact Engineering Team' : '联系工程团队'}</span>
+            <span>{t('custom.contactEngineeringTeam')}</span>
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

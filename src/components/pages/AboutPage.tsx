@@ -21,25 +21,25 @@ const AboutPage = ({ onNavigate }: AboutPageProps) => {
       icon: Factory,
       title: t('about.factory'),
       desc: t('about.factoryDesc'),
-      image: `${publicUrl}/images/about/Factory.png`,
+      image: `${publicUrl}/images/about/Factory.webp`,
     },
     {
       icon: Globe,
       title: t('about.global'),
       desc: t('about.globalDesc'),
-      image: `${publicUrl}/images/about/Global.png`,
+      image: `${publicUrl}/images/about/Global.webp`,
     },
     {
       icon: Wrench,
       title: t('about.engineering'),
       desc: t('about.engineeringDesc'),
-      image: `${publicUrl}/images/about/Engineering.png`,
+      image: `${publicUrl}/images/about/Engineering.webp`,
     },
     {
       icon: Headphones,
       title: t('about.service'),
       desc: t('about.serviceDesc'),
-      image: `${publicUrl}/images/about/Service.png`,
+      image: `${publicUrl}/images/about/Service.webp`,
     },
   ];
 
@@ -59,8 +59,9 @@ const AboutPage = ({ onNavigate }: AboutPageProps) => {
         {/* Hero Banner */}
         <div className="relative h-80 rounded-lg overflow-hidden mb-12">
           <img
-            src={`${publicUrl}/images/about/CompanyBanner.png`}
+            src={`${publicUrl}/images/about/CompanyBanner.webp`}
             alt="Company"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent" />
@@ -116,6 +117,7 @@ const AboutPage = ({ onNavigate }: AboutPageProps) => {
                   <img
                     src={section.image}
                     alt={section.title}
+                    loading="lazy"
                     className="w-full h-64 lg:h-full object-cover"
                   />
                 </div>
